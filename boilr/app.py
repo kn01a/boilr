@@ -209,6 +209,7 @@ def manual_override(args):
         if args in {0, 1}:
             logger.debug("Manual override: contactor %s", "closed" if args == 1 else "open")
             logger.info("Status: %s (manual)", "active" if args == 1 else "inactive")
+            hue.switch(True if args == 1 else False)
             if not rpi_gpio.output_relay(config.RpiConfig.rpi_channel_relay_out, True if args == 1 else False):
                 raise SystemError("GPIO channel failed")
         else:
