@@ -11,7 +11,7 @@ import boilr.config as config
 import boilr.daemon as daemon
 import boilr.helper as helper
 import boilr.rpi_gpio as rpi_gpio
-import boirl.hue as hue
+import boilr.hue as hue
 
 logger = logging.getLogger(__name__)
 
