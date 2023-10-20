@@ -65,6 +65,7 @@ else:
     app_config = user_config["boilr"]
     rpi_config = user_config["rpi"]
     rest_config = user_config["endpoint"]
+    hue_config = user_config["hue"]
 
     SystemConfig.interval = app_config['interval']
     SystemConfig.start_timeout = app_config['start_timeout']
@@ -78,10 +79,10 @@ else:
     RpiConfig.rpi_channel_relay_out = rpi_config['rpi_channel_relay_out']
     RpiConfig.rpi_channel_relay_in = rpi_config['rpi_channel_relay_in']
 
-    HueConfig.enabled = rpi_config['hue_enabled']
-    HueConfig.ip = rpi_config['hue_ip']
-    HueConfig.user = rpi_config['hue_user']
-    HueConfig.device_name = rpi_config['hue_device_name']
+    HueConfig.enabled = hue_config['hue_enabled']
+    HueConfig.ip = hue_config['hue_ip']
+    HueConfig.user = hue_config['hue_user']
+    HueConfig.device_name = hue_config['hue_device_name']
 
     EndpointConfig.request_timeout = rest_config['request_timeout']
     EndpointConfig.max_retries = rest_config['max_retries']
