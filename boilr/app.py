@@ -178,7 +178,7 @@ def run():
                     logger.info("Status: %s", "active" if boilr.status[0] else "inactive")
                     boilr.status_prev = boilr.status
 
-                    hue.switch(boilr.status)
+                    hue.switch(boilr.status[0])
 
                     if not rpi_gpio.output_relay(config.RpiConfig.rpi_channel_relay_out, boilr.status[0]):
                         logger.warning("Error while setting gpio channel")
