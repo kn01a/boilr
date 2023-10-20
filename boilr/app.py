@@ -178,7 +178,8 @@ def run():
                     logger.info("Status: %s", "active" if boilr.status[0] else "inactive")
                     boilr.status_prev = boilr.status
 
-                    hue.switch(boilr.status[0])
+                    if(HueConfig.enabled):
+                        hue.switch(boilr.status[0])
 
                     if not rpi_gpio.output_relay(config.RpiConfig.rpi_channel_relay_out, boilr.status[0]):
                         logger.warning("Error while setting gpio channel")
@@ -209,7 +210,10 @@ def manual_override(args):
         if args in {0, 1}:
             logger.debug("Manual override: contactor %s", "closed" if args == 1 else "open")
             logger.info("Status: %s (manual)", "active" if args == 1 else "inactive")
-            hue.switch(True if args == 1 else False)
+            
+            if(HueConfig.enabled):
+                hue.switch(True if args == 1 else False)
+            
             if not rpi_gpio.output_relay(config.RpiConfig.rpi_channel_relay_out, True if args == 1 else False):
                 raise SystemError("GPIO channel failed")
         else:

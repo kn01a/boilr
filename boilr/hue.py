@@ -1,11 +1,12 @@
 from huesdk import Hue
 import logging
+import boilr.config as config
 
 logger = logging.getLogger(__name__)
 
 def switch(state: bool):
-    myHue = Hue(bridge_ip="192.168.0.107", username="bjjskn0JYFlazBVGbz6ObqhMWiqbZmJvkZ0aJYdQ")
-    myDevice = myHue.get_light(name="Standleuchte1")
+    myHue = Hue(bridge_ip=HueConfig.ip, username=HueConfig.user)
+    myDevice = myHue.get_light(name=HueConfig.device_name)
     if state:
         myDevice.on()
     else:
