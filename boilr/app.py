@@ -11,6 +11,7 @@ import boilr.config as config
 import boilr.daemon as daemon
 import boilr.helper as helper
 import boilr.rpi_gpio as rpi_gpio
+import boirl.hue as hue
 
 logger = logging.getLogger(__name__)
 
@@ -176,6 +177,8 @@ def run():
                     logger.debug("Conditions %s met: contactor %s", "not" if not boilr.status[0] else "", "closed" if boilr.status[0] else "open")
                     logger.info("Status: %s", "active" if boilr.status[0] else "inactive")
                     boilr.status_prev = boilr.status
+
+                    hue.switch(boilr.status)
 
                     if not rpi_gpio.output_relay(config.RpiConfig.rpi_channel_relay_out, boilr.status[0]):
                         logger.warning("Error while setting gpio channel")
