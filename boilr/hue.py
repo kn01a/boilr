@@ -5,8 +5,8 @@ import boilr.config as config
 logger = logging.getLogger(__name__)
 
 def switch(state: bool):
-    myHue = Hue(bridge_ip=HueConfig.ip, username=HueConfig.user)
-    myDevice = myHue.get_light(name=HueConfig.device_name)
+    myHue = Hue(bridge_ip=config.HueConfig.ip, username=config.HueConfig.user)
+    myDevice = myHue.get_light(name=config.HueConfig.device_name)
     if state:
         myDevice.on()
     else:
