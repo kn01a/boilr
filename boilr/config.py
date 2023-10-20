@@ -29,6 +29,13 @@ class RpiConfig():
     rpi_channel_relay_out = 17 # board number 11
     rpi_channel_relay_in = 27 # board number 13
 
+class HueConfig():
+    """Class Hue configuration"""
+    enabled = False  # enable Hue function
+    ip = "example.local" # ip of hue bridge
+    user = "TOKEN" # user token of hue api (has to exist already)
+    device_name = "DEVICE" # name of hue device to switch
+
 class EndpointConfig():
     """Class endpoint configuration"""
     request_timeout = 5 # timeout for requests in seconds
@@ -70,6 +77,11 @@ else:
 
     RpiConfig.rpi_channel_relay_out = rpi_config['rpi_channel_relay_out']
     RpiConfig.rpi_channel_relay_in = rpi_config['rpi_channel_relay_in']
+
+    HueConfig.enabled = rpi_config['hue_enabled']
+    HueConfig.ip = rpi_config['hue_ip']
+    HueConfig.user = rpi_config['hue_user']
+    HueConfig.device_name = rpi_config['hue_device_name']
 
     EndpointConfig.request_timeout = rest_config['request_timeout']
     EndpointConfig.max_retries = rest_config['max_retries']

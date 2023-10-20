@@ -15,6 +15,12 @@ rpi:
   rpi_channel_relay_out: 17 # board number 11
   rpi_channel_relay_in: 27 # board number 13
 
+hue:
+  hue_enabled: True
+  hue_ip: "192.168.0.107"
+  hue_user: "bjjskn0JYFlazBVGbz6ObqhMWiqbZmJvkZ0aJYdQ"
+  hue_device_name: "Standleuchte2"
+
 endpoint:
   request_timeout: 5 # timeout for requests in seconds
   max_retries: 3 # maximum retries for requests
