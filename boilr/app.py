@@ -13,6 +13,7 @@ import boilr.helper as helper
 import boilr.rpi_gpio as rpi_gpio
 import boilr.hue as hue
 
+
 logger = logging.getLogger(__name__)
 
 class Boilr:
