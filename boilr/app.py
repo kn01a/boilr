@@ -178,7 +178,7 @@ def run():
                     logger.info("Status: %s", "active" if boilr.status[0] else "inactive")
                     boilr.status_prev = boilr.status
 
-                    if(HueConfig.enabled):
+                    if(config.HueConfig.enabled):
                         hue.switch(boilr.status[0])
 
                     if not rpi_gpio.output_relay(config.RpiConfig.rpi_channel_relay_out, boilr.status[0]):
@@ -211,7 +211,7 @@ def manual_override(args):
             logger.debug("Manual override: contactor %s", "closed" if args == 1 else "open")
             logger.info("Status: %s (manual)", "active" if args == 1 else "inactive")
             
-            if(HueConfig.enabled):
+            if(config.HueConfig.enabled):
                 hue.switch(True if args == 1 else False)
             
             if not rpi_gpio.output_relay(config.RpiConfig.rpi_channel_relay_out, True if args == 1 else False):
