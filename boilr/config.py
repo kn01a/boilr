@@ -31,7 +31,7 @@ class RpiConfig():
 
 class HueConfig():
     """Class Hue configuration"""
-    enabled = False  # enable Hue function
+    hue_active = False  # enable / disable Hue function
     ip = "example.local" # ip of hue bridge
     user = "TOKEN" # user token of hue api (has to exist already)
     device_name = "DEVICE" # name of hue device to switch
@@ -79,7 +79,7 @@ else:
     RpiConfig.rpi_channel_relay_out = rpi_config['rpi_channel_relay_out']
     RpiConfig.rpi_channel_relay_in = rpi_config['rpi_channel_relay_in']
 
-    HueConfig.enabled = hue_config['hue_enabled']
+    HueConfig.hue_active = hue_config['hue_enabled']
     HueConfig.ip = hue_config['hue_ip']
     HueConfig.user = hue_config['hue_user']
     HueConfig.device_name = hue_config['hue_device_name']
